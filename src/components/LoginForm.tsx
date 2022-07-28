@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { useForm } from "react-hook-form"
 import { CreateUserInput } from "../schema/user.schema"
 import { trpc } from "../utils/trpc"
@@ -42,7 +42,8 @@ function LoginForm() {
         return <VerifyToken hash={hash} />
     }
 
-    return <div>
+
+    return <div className="w-96">
         <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-100 shadow-sm rounded-md border-2 border-solid grid">
             {error && error.message}
             {success && <p>Check your email!</p>}

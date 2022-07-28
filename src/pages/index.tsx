@@ -12,18 +12,12 @@ const Home: NextPage = () => {
   // change this page to be the home page 
   // add link to navbar to create post if user is not null
 
-  const user = useUserContext()
 
-  if (!user) {
-    return <LoginForm />
-  }
-
-
-  return <div>
-    <Link href="/posts/new">
-      Create Post
-    </Link>
-  </div>
+  return (
+    <div className='text-center'>
+      Page Index
+    </div>
+  )
 }
 
 export default Home

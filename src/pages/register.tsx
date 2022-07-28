@@ -19,7 +19,7 @@ function RegisterPage() {
         mutate(values)
     }
     return (
-        <div>
+        <div className="w-screen flex justify-center">
             <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-100 shadow-sm rounded-md border-2 border-solid grid">
                 {error && error.message}
                 <div className="p-10">

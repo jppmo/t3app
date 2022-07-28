@@ -11,7 +11,11 @@ const LoginForm = dynamic(() => import('../components/LoginForm'), {
 })
 
 function LoginPage() {
-    return <div><LoginForm /></div>
+    return (
+        <div className="w-screen flex justify-center">
+            <LoginForm />
+        </div>
+    )
 }
 
 

@@ -1,5 +1,6 @@
 import { useRouter } from "next/router"
 import { useForm } from "react-hook-form"
+import { useUserContext } from "../../context/user.context"
 import { CreatePostInput } from "../../schema/post.schema"
 import { trpc } from "../../utils/trpc"
 
@@ -7,7 +8,11 @@ function createPostPage() {
 
     const { handleSubmit, register } = useForm<CreatePostInput>()
     const router = useRouter()
+    const user = useUserContext()
 
+    if (!user) {
+        router.push("/")
+    }
     const { mutate, error } = trpc.useMutation(['posts.create-post'], {
         onSuccess({ id }) {
             router.push(`/posts/${id}`)

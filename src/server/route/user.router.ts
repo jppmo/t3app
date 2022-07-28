@@ -102,11 +102,13 @@ export const userRouter = createRouter()
 
             try {
 
-                await ctx.prisma.loginToken.deleteMany({
+                ctx.prisma.loginToken.deleteMany({
                     where: {
                         userId: ctx.user?.id
                     }
                 })
+
+                ctx.res.setHeader('Set-Cookie', serialize('token', '', { path: "/" }))
 
                 return true
             } catch (e) {
