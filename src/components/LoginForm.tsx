@@ -42,7 +42,7 @@ function LoginForm() {
         return <VerifyToken hash={hash} />
     }
 
-    return <div className="container mx-auto max-w-md my-16">
+    return <div>
         <form onSubmit={handleSubmit(onSubmit)} className="bg-gray-100 shadow-sm rounded-md border-2 border-solid grid">
             {error && error.message}
             {success && <p>Check your email!</p>}

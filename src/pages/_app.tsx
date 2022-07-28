@@ -8,6 +8,7 @@ import { AppRouter } from '../server/route/app.router'
 import { url } from '../constants'
 import { trpc } from '../utils/trpc'
 import { UserContextProvider } from '../context/user.context'
+import Layout from './layout'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -20,7 +21,9 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <UserContextProvider value={data}>
       <main>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </main>
     </UserContextProvider>
   )

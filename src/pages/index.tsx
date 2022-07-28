@@ -9,6 +9,9 @@ import { trpc } from '../utils/trpc'
 
 const Home: NextPage = () => {
 
+  // change this page to be the home page 
+  // add link to navbar to create post if user is not null
+
   const user = useUserContext()
 
   if (!user) {
