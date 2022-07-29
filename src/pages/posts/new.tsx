@@ -14,7 +14,7 @@ const MDEditor = dynamic(
     { ssr: false }
 )
 
-function createPostPage() {
+function CreatePostPage() {
 
     //const [value, setValue] = useState("**Hello world!!!**")
     const [value, setValue] = useState(`
@@ -170,4 +170,4 @@ This post is going to serve as draft for future posts of this format, the goal i
     </div>
 }
 
-export default createPostPage
+export default CreatePostPage
