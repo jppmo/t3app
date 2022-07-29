@@ -4,11 +4,10 @@ import { useEffect, useState } from "react"
 import { useUserContext } from "../context/user.context"
 import { trpc } from "../utils/trpc"
 import { useTheme } from 'next-themes'
-import { Category } from "@prisma/client"
 import { useForm } from "react-hook-form"
 import { CreateCategoryInput } from "../schema/post.schema"
 
-function AddCategory({ categories }: { categories: Category[] | undefined }) {
+function AddCategory({ categories }: { categories: CreateCategoryInput[] | undefined }) {
 
     const router = useRouter()
 
