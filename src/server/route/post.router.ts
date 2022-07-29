@@ -14,6 +14,8 @@ export const postRouter = createRouter()
                 })
             }
 
+            console.log(input);
+
             const post = await ctx.prisma.post.create({
                 data: {
                     ...input,

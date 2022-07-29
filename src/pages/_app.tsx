@@ -9,6 +9,7 @@ import { url } from '../constants'
 import { trpc } from '../utils/trpc'
 import { UserContextProvider } from '../context/user.context'
 import Layout from './layout'
+import { ThemeProvider } from 'next-themes'
 
 function MyApp({ Component, pageProps }: AppProps) {
 
@@ -20,11 +21,13 @@ function MyApp({ Component, pageProps }: AppProps) {
 
   return (
     <UserContextProvider value={data}>
-      <main>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </main>
+      <ThemeProvider>
+        <main>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </main>
+      </ThemeProvider>
     </UserContextProvider>
   )
 }
