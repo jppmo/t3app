@@ -1,6 +1,18 @@
 import Link from "next/link"
 import { trpc } from "../../utils/trpc"
 
+interface PostData {
+    id: String,
+    title: String,
+    body: String
+    createdAt: Date,
+    updatedAt: Date,
+    userId: String
+    category: {
+        name: String
+    }
+}
+
 function PostListingPage() {
     const { data, isLoading } = trpc.useQuery(['posts.posts'])
 
@@ -13,9 +25,9 @@ function PostListingPage() {
 
     return (
         <div className="flex flex-row flex-wrap gap-6 ml-10 justify-center">
-            {data?.map(post => {
+            {data?.map((post: PostData, index) => {
                 return (
-                    <article key={post.id} className="flex flex-col flex-shrink-0 w-48 h-48 rounded-sm bg-slate-500 p-2 justify-between">
+                    <article key={index} className="flex flex-col flex-shrink-0 w-48 h-48 rounded-sm bg-slate-500 p-2 justify-between">
                         <div>
                             <p id="article-date" className="text-green-100">{post.createdAt.toDateString()}</p>
                             <h1 id="article-title" className="text-xl text-gray-50"><Link href={`/posts/${post.id}`}>{post.title}</Link></h1>
