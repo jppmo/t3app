@@ -25,9 +25,9 @@ function PostListingPage() {
 
     return (
         <div className="flex flex-row flex-wrap gap-6 ml-10 justify-center">
-            {data?.map((post: PostData, index) => {
+            {data?.map((post: PostData, index: Number) => {
                 return (
-                    <article key={index} className="flex flex-col flex-shrink-0 w-48 h-48 rounded-sm bg-slate-500 p-2 justify-between">
+                    <article key={index.toString() + post.id.slice(0, 5)} className="flex flex-col flex-shrink-0 w-48 h-48 rounded-sm bg-slate-500 p-2 justify-between">
                         <div>
                             <p id="article-date" className="text-green-100">{post.createdAt.toDateString()}</p>
                             <h1 id="article-title" className="text-xl text-gray-50"><Link href={`/posts/${post.id}`}>{post.title}</Link></h1>
