@@ -51,7 +51,7 @@ function Navbar() {
                         <Link className="" href="/posts/new">Create</Link>
                     </li>}
                     {user && <li className="hover:text-green-100 focus:text-gray-700 p-2">
-                        <button type="submit" onClick={handleLogout} className="bg-gray-200 border border-gray-100 rounded-md p-1 w-full my-3">Logout</button>
+                        <button id="logout-btn" type="submit" onClick={handleLogout} className="bg-gray-200 border border-gray-100 rounded-md w-full">Logout</button>
                     </li>}
                 </ul>
             </div>

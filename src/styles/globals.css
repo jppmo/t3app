@@ -11,11 +11,43 @@ body {
 }
 
 
-[class*="language-"],
-span {
+[class*="language-"] span {
+
   background-color: #e4e4e4 !important;
   text-shadow: none !important;
 }
+
+
+/* overrides for the dark mode */
+[data-theme='dark'] #logout-btn {
+  background-color: black !important;
+}
+
+[data-theme='light'] nav {
+  background-color: rgb(163, 180, 204) !important;
+}
+
+[data-theme='light'] [class*="language-"] {
+  background-color: rgb(235, 238, 241) !important;
+  text-shadow: none !important;
+}
+
+[data-theme='light'] article {
+  background-color: rgb(198, 216, 240) !important;
+}
+
+[data-theme='light'] #article-date {
+  color: rgb(85 106 110) !important;
+}
+
+[data-theme='light'] #article-title {
+  color: black !important;
+}
+
+[data-theme='light'] #article-category-name {
+  color: rgb(238, 65, 209) !important;
+}
+
 
 /* 
 .md-dark,

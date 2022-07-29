@@ -1,4 +1,4 @@
-import { createPostSchema, getSinglePostSchema } from "../../schema/post.schema";
+import { createCategoriesSchema, createPostSchema, getSinglePostSchema } from "../../schema/post.schema";
 import { createRouter } from "../createRouter";
 import * as trpc from '@trpc/server'
 import { createContext } from "vm";
@@ -23,6 +23,11 @@ export const postRouter = createRouter()
                         connect: {
                             id: ctx.user?.id
                         }
+                    },
+                    category: {
+                        connect: {
+                            id: input.category
+                        }
                     }
                 }
             })
@@ -30,9 +35,33 @@ export const postRouter = createRouter()
             return post
         }
     })
+    .mutation('create-category', {
+        input: createCategoriesSchema,
+        async resolve({ ctx, input }) {
+            if (!ctx.user) {
+                new trpc.TRPCError({
+                    code: 'FORBIDDEN',
+                    message: 'Can not create a category while logged out'
+                })
+            }
+
+            const category = await ctx.prisma.category.create({
+                data: {
+                    ...input
+                }
+            })
+
+            return category
+        }
+    })
     .query('posts', {
         resolve({ ctx }) {
-            return ctx.prisma.post.findMany()
+
+            return ctx.prisma.post.findMany({
+                include: {
+                    category: true
+                }
+            })
         }
     })
     .query('single-post', {
@@ -43,5 +72,10 @@ export const postRouter = createRouter()
                     id: input.postId
                 }
             })
+        }
+    })
+    .query('get-categories', {
+        resolve({ ctx }) {
+            return ctx.prisma.category.findMany()
         }
     })

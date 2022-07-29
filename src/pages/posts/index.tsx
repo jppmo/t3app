@@ -4,6 +4,9 @@ import { trpc } from "../../utils/trpc"
 function PostListingPage() {
     const { data, isLoading } = trpc.useQuery(['posts.posts'])
 
+    console.log(data);
+
+
     if (isLoading) {
         return <p>Loading...</p>
     }
@@ -14,13 +17,13 @@ function PostListingPage() {
                 return (
                     <article key={post.id} className="flex flex-col flex-shrink-0 w-48 h-48 rounded-sm bg-slate-500 p-2 justify-between">
                         <div>
-                            <p className="text-green-100">{post.createdAt.toDateString()}</p>
-                            <h1 className="text-xl text-gray-50"><Link href={`/posts/${post.id}`}>{post.title}</Link></h1>
+                            <p id="article-date" className="text-green-100">{post.createdAt.toDateString()}</p>
+                            <h1 id="article-title" className="text-xl text-gray-50"><Link href={`/posts/${post.id}`}>{post.title}</Link></h1>
                         </div>
                         {/* <span className="text-sm">{`${post.body.length < 30 ? post.body : post.body.slice(0, 100)} ...`}</span> */}
                         {/* <span className="text-sm truncate ...">{post.body}</span> */}
                         <div>
-                            <p className="text-xs text-gray-50">category</p>
+                            <p id="article-category-name" className="text-xs text-amber-200">{post.category.name}</p>
                         </div>
                         {/* <Link href={`/posts/${post.id}`}>Read more</Link> */}
                     </article>
