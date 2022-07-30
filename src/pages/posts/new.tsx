@@ -14,6 +14,11 @@ const MDEditor = dynamic(
     { ssr: false }
 )
 
+interface CategoryData {
+    id: string,
+    name: string
+}
+
 function CreatePostPage() {
 
     //const [value, setValue] = useState("**Hello world!!!**")
@@ -149,9 +154,9 @@ This post is going to serve as draft for future posts of this format, the goal i
                     <span className="mx-3">category:</span>
                     {data && <select {...register('category')}>
                         {
-                            data.map((cat) => {
+                            data.map((cat: CategoryData, index: Number) => {
                                 return (
-                                    <option key={cat.id} value={cat.id}>{cat.name}</option>
+                                    <option key={index.toString()} value={cat.id}>{cat.name}</option>
                                 )
                             })
                         }
