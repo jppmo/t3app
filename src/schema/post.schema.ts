@@ -15,6 +15,7 @@ export const getSinglePostSchema = z.object({
 
 export const createCategoriesSchema = z.object({
     name: z.string().max(30),
+    color: z.string().max(30),
 })
 
 export type CreateCategoryInput = z.TypeOf<typeof createCategoriesSchema>

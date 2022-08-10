@@ -27,7 +27,7 @@ function Navbar() {
 
 
     return (
-        <nav className="relative w-full flex flex-wrap items-center py-4 bg-slate-500 shadow-lg">
+        <nav className="relative min-w-screen flex flex-wrap items-center py-4 bg-slate-500 shadow-lg">
             <div className="w-full flex flex-wrap flex-row items-center px-6">
                 <ul className="flex flex-grow flex-row pl-0 list-none w-auto justify-center">
                     {/* <li className="hover:text-green-100 focus:text-gray-700 p-2">

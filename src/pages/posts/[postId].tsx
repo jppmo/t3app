@@ -33,19 +33,17 @@ function SinglePostPage() {
     }
 
     return (
-        <div className="w-screen flex justify-center">
-            <div>
+        <div className="flex justify-center px-20 flex-wrap flex-shrink">
+            <div className="flex flex-col">
                 <h1 className="text-4xl my-8">{data?.title}</h1>
-                <div className="container">
-                    <div data-color-mode="dark">
-                        <div className="wmde-markdown-var"></div>
-                        <MarkdownPreview
-                            source={`${data?.body}`}
-                        />
-                    </div>
-                </div>
-            </div>
-        </div>
+
+                <MarkdownPreview
+                    className=""
+                    style={{ maxWidth: "800px", minWidth: "0" }}
+                    source={`${data?.body}`}
+                />
+            </div >
+        </div >
     )
 }
 

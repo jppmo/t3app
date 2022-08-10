@@ -41,7 +41,8 @@ model Post {
 }
 
 model Category {
-  id   String @unique @default(uuid())
-  name String
-  Post Post[]
+  id    String @unique @default(uuid())
+  name  String
+  color String @default("")
+  Post  Post[]
 }
